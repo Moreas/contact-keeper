@@ -32,7 +32,9 @@ router.post('/', [check('name', 'Please add name').not().isEmpty(), check('email
     await user.save()
 
     const payload = {
-      user: user.id
+      user: {
+        id: user.id
+      }
     }
 
     jwt.sign(payload, config.get('JWTSecret'), { expiresIn: 360000 }, (err, token) => {

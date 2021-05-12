@@ -23,12 +23,15 @@ router.get('/', auth, async (req, res) => {
 // @desc      Add new contact
 // @access    Private
 router.post('/', [auth, [check('name', 'Name is required').not().isEmpty()]], async (req, res) => {
+  console.log('PROCESSING')
+  console.log(req.body)
   const errors = validationResult(req)
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() })
   }
   const { name, email, phone, type } = req.body
   try {
+    console.log('try')
     const newContact = new Contact({
       name,
       email,
@@ -38,7 +41,9 @@ router.post('/', [auth, [check('name', 'Name is required').not().isEmpty()]], as
     })
     const contact = await newContact.save()
     res.json(contact)
+    console.log(contact)
   } catch (err) {
+    console.log('catch')
     console.error(err.message)
     res.status(500).send('Server Error')
   }
