@@ -1,1 +1,1 @@
-{ "mongoURI": "mongodb+srv://florent:florent@contact-keeper.7qd6j.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", "JWTSecret": "75019" }
+{ "mongoURI": "mongodb+srv://florent:KYWdNLjdTBuYddZQ@contact-keeper.7qd6j.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", "JWTSecret": "75019" }
